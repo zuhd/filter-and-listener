@@ -11,7 +11,17 @@
 
     <servlet-mapping>
         <servlet-name>CharacterEncodingServlet</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/a</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>KeywordsServlet</servlet-name>
+        <servlet-class>com.zuhd.web.KeywordsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>KeywordsServlet</servlet-name>
+        <url-pattern>/b</url-pattern>
     </servlet-mapping>
 
     <filter>
@@ -21,6 +31,20 @@
 
     <filter-mapping>
         <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>KeywordsFilter</filter-name>
+        <filter-class>com.zuhd.web.KeywordsFilter</filter-class>
+        <init-param>
+            <param-name>keywords</param-name>
+            <param-value>/WEB-INF/keywords.txt</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>KeywordsFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 </web-app>
